@@ -3,8 +3,8 @@ const router = express.Router();
 const TestInstanceController = require("../../controller/Controllers").TestInstanceController;
 
 router.post('/create', async function(req,res)  {
-  await TestInstanceController.CreateTestInstance(req);
-  res.status(200).send();
+  const resultId = await TestInstanceController.CreateTestInstance(req);
+  res.status(200).send(resultId);
 });
 
 router.put('/Update', async function(req,res)  {

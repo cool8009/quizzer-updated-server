@@ -12,10 +12,12 @@ module.exports = class TestInstancesService {
         const newCountDate = new Date().toISOString().slice(0, 10);  
         await TestInstances.create({TestId: testId, Email: email, FirstName: firstName, 
             LastName: lastName, DateTaken: newCountDate})
-            .then(result =>
-                console.log("TestInstances by " + result.TestInstancesId + " id created"))
+            .then(result =>{
+                console.log("TestInstances by " + result.TestInstancesId + " id created")
+                this.res =  result;})
             .catch(err =>
-                console.log(err));                      
+                console.log(err));   
+        return this.res;                   
     }
 
     async UpdateTestInstance(newTestInstances) {

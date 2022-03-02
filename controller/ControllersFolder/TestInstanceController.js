@@ -7,7 +7,9 @@ exports.CreateTestInstance = async (req) => {
   const testId = parseInt(req.body.TestId);
   const firstName = req.body.FirstName;
   const lastName = req.body.LastName;
-  await TestInstanceService.createTestInstance(testId, email, firstName, lastName);
+
+  const InstanceResult =  await TestInstanceService.createTestInstance(testId, email, firstName, lastName);
+  return InstanceResult.TestInstanceId;
 };
 
 exports.UpdateTestInstance = async (req) => {
