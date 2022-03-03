@@ -7,6 +7,8 @@ const Urls = require("./settings/staticUrls");
 
 const Routers = require("./routes/Routers");
 
+const email = require("./routes/RoutersFolder/SendEmailR");
+
 app.use(cors());
 app.use(bodyParser.json());
 app.listen(Urls.serverPort, () =>
@@ -23,3 +25,4 @@ app.use("/FieldOfStudy", Routers.FieldOfStudyRoutes);
 app.use("/Answer", Routers.AnswerRoutes);
 app.use("/TestInstancesRoutes", Routers.TestInstanceRoutes);
 app.use("/AnswerInstanceRoutes", Routers.AnswerInstanceRoutes);
+app.use("/Email", Routers.EmailRoutes);
