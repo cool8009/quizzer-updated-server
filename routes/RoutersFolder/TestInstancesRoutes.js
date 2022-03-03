@@ -4,7 +4,7 @@ const TestInstanceController = require("../../controller/Controllers").TestInsta
 
 router.post('/create', async function(req,res)  {
   const resultId = await TestInstanceController.CreateTestInstance(req);
-  res.status(200).send(resultId);
+  res.send(JSON.stringify(resultId));
 });
 
 router.put('/Update', async function(req,res)  {
