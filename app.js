@@ -25,4 +25,4 @@ app.use("/FieldOfStudy", Routers.FieldOfStudyRoutes);
 app.use("/Answer", Routers.AnswerRoutes);
 app.use("/TestInstancesRoutes", Routers.TestInstanceRoutes);
 app.use("/AnswerInstanceRoutes", Routers.AnswerInstanceRoutes);
-app.use("/Email", Routers.EmailRoutes);
+//app.use("/Email", Routers.EmailRoutes);

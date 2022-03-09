@@ -1,8 +1,9 @@
 const express = require("express");
-const { SendEmail } = require("../../controller/ControllersFolder/EmailController");
 const router = express.Router();
+const { SendEmail } = require("../../controller/Controllers").EmailController;
 
 router.post('/SendEmail', async function(req,res)  {
-  await SendEmail("nikitager29@gmail.com","Test email","lets try");
+  const obj = req.body;
+//  await SendEmail("nikitager29@gmail.com","Test email","lets try");
   res.status(200).send();
 });

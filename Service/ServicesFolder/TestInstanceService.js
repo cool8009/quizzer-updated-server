@@ -10,6 +10,12 @@ module.exports = class TestInstancesService {
     
     async createTestInstance(testId, email, firstName, lastName) {
         const newCountDate = new Date().toISOString().slice(0, 10);  
+        const instance =  await this.GetTestInstanceByEmail(email);
+        if(instance){
+            this.UpdateTestInstance({ FirstName: firstName,
+            Grade: Grade ,
+            LastName: lastName});
+        }
         await TestInstances.create({TestId: testId, Email: email, FirstName: firstName, 
             LastName: lastName, DateTaken: newCountDate})
             .then(result =>{
@@ -21,8 +27,11 @@ module.exports = class TestInstancesService {
     }
 
     async UpdateTestInstance(newTestInstances) {
-        await TestInstances.update({Email: newTestInstances.Email , FirstName: newTestInstances.FirstName,
-            Grade: newTestInstances.Grade , LastName: newTestInstances.LastName}, {
+        await TestInstances.update({
+            FirstName: newTestInstances.FirstName,
+            Grade: newTestInstances.Grade ,
+            LastName: newTestInstances.LastName
+            }, {
             where: {
                 TestInstancesId: newTestInstances.TestInstancesId
             }})
@@ -40,6 +49,17 @@ module.exports = class TestInstancesService {
         const result = TestInstances.findOne({ 
             where: {
                 TestInstancesId: id
+        }})
+        .catch((err) => {
+            console.log(err)
+        });
+        return result;  
+    }
+
+    async GetTestInstanceByEmail(email) {
+        const result = TestInstances.findOne({ 
+            where: {
+                Email: email
         }})
         .catch((err) => {
             console.log(err)
