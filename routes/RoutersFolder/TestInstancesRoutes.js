@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const TestInstanceController = require("../../controller/Controllers").TestInstanceController;
 
-router.post('/create', async function(req,res)  {
+router.post('/Create', async function(req,res)  {
   const resultId = await TestInstanceController.CreateTestInstance(req);
   res.send(JSON.stringify(resultId));
 });

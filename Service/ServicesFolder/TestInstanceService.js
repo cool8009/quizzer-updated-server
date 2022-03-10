@@ -21,8 +21,11 @@ module.exports = class TestInstancesService {
     }
 
     async UpdateTestInstance(newTestInstances) {
-        await TestInstances.update({Email: newTestInstances.Email , FirstName: newTestInstances.FirstName,
-            Grade: newTestInstances.Grade , LastName: newTestInstances.LastName}, {
+        await TestInstances.update({
+            FirstName: newTestInstances.FirstName,
+            Grade: newTestInstances.Grade ,
+            LastName: newTestInstances.LastName
+            }, {
             where: {
                 TestInstancesId: newTestInstances.TestInstancesId
             }})
@@ -30,7 +33,20 @@ module.exports = class TestInstancesService {
             console.log("TestInstances by " + result.TestInstancesId + " id update"))
         .catch(err =>
             console.log(err));             
-    }      
+    }    
+    
+    async UpdateGrade(id){
+        await TestInstances.update({
+            Grade: newTestInstances.Grade
+            }, {
+            where: {
+                TestInstancesId: id
+            }})
+        .then(result =>
+            console.log("TestInstances by " + result.TestInstancesId + " id update"))
+        .catch(err =>
+            console.log(err));              
+    }
 
     async GetAllTestInstance() {
         return TestInstances.findAll().catch((err) => {console.log(err)});               
@@ -40,6 +56,17 @@ module.exports = class TestInstancesService {
         const result = TestInstances.findOne({ 
             where: {
                 TestInstancesId: id
+        }})
+        .catch((err) => {
+            console.log(err)
+        });
+        return result;  
+    }
+
+    async GetTestInstanceByEmail(email) {
+        const result = TestInstances.findOne({ 
+            where: {
+                Email: email
         }})
         .catch((err) => {
             console.log(err)

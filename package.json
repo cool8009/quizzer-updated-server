@@ -17,6 +17,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
+    "nodemailer": "^6.7.2",
     "nodemon": "^2.0.15",
     "sequelize": "^6.16.1",
     "sequelize-auto": "^0.8.8",
