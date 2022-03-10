@@ -75,4 +75,8 @@ module.exports = class AnswerService {
             .catch(err =>
                 console.log(err));           
     }      
+
+    async IsAnswerCorrect(id){
+        return this.GetAnswerById(id).IsTrue;
+    }
 }

@@ -23,6 +23,6 @@ app.use("/Tag", Routers.TagRoutes);
 app.use("/Company", Routers.CompanyRoutes);
 app.use("/FieldOfStudy", Routers.FieldOfStudyRoutes);
 app.use("/Answer", Routers.AnswerRoutes);
-app.use("/TestInstancesRoutes", Routers.TestInstanceRoutes);
-app.use("/AnswerInstanceRoutes", Routers.AnswerInstanceRoutes);
+app.use("/TestInstances", Routers.TestInstanceRoutes);
+app.use("/AnswerInstance", Routers.AnswerInstanceRoutes);
 //app.use("/Email", Routers.EmailRoutes);

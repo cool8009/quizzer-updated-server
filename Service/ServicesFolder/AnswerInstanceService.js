@@ -7,8 +7,8 @@ const sequelize = new Sequelize({
 const AnswerInstance  = require("../../models/AnswerInstances")(sequelize, Sequelize.DataTypes);
 
 module.exports = class AnswerInstanceService {
-    
-    async CreateAnswerInstance(testid, answerid) {
+
+    async CreateAnswerInstance(testid, answerId) {
         await AnswerInstance.create({TestInstanceId: testid, AnswerId: answerId})
             .then(result =>
                 console.log("Answer instance by " + result.AnswerInstanceId + " id created"))
