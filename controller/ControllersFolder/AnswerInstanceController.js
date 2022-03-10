@@ -4,16 +4,16 @@ const AnswerInstanceService = container.resolve("AnswerInstanceService");
 const AnswersService = container.resolve("AnswerService");
 
 exports.CreateAnswerInstance = async (arrayOfAnswerId, testInstanceId) => {
-  const answerScore = 100/(arrayOfAnswerId.length);
+  const answerScore = 100 / arrayOfAnswerId.length;
   const Score = 0;
- await array.forEach(id => {
-     AnswerInstanceService.CreateAnswerInstance(testInstanceId, id);
+  await array.forEach((id) => {
+    AnswerInstanceService.CreateAnswerInstance(testInstanceId, id);
     const correct = AnswersService.IsAnswerCorrect(id);
-    if(correct){
-      Score+=answerScore;
+    if (correct) {
+      Score += answerScore;
     }
-    });
-    return Score;
+  });
+  return Score;
 };
 
 exports.UpdateAnswerInstance = async (req) => {
@@ -27,7 +27,9 @@ exports.GetAllAnswerInstances = async () => {
   return result;
 };
 exports.GetAllAnswerInstancesForTestId = async (id) => {
-  const result = await AnswerInstanceService.GetAllAnswerInstancesForTestId(TestInstanceId);
+  const result = await AnswerInstanceService.GetAllAnswerInstancesForTestId(
+    TestInstanceId
+  );
   return result;
 };
 
@@ -35,7 +37,6 @@ exports.GetAnswerInstanceById = async (id) => {
   const result = await AnswerInstanceService.GetAnswerInstanceById(id);
   return result;
 };
-
 
 exports.DeleteAnswerInstance = async (id) => {
   await AnswerInstanceService.DeleteAnswerInstance(id);
