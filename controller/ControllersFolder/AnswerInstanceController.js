@@ -6,7 +6,7 @@ const AnswersService = container.resolve("AnswerService");
 exports.CreateAnswerInstance = async (arrayOfAnswerId, testInstanceId) => {
   const answerScore = 100 / arrayOfAnswerId.length;
   const Score = 0;
-  await array.forEach((id) => {
+  await arrayOfAnswerId.forEach((id) => {
     AnswerInstanceService.CreateAnswerInstance(testInstanceId, id);
     const correct = AnswersService.IsAnswerCorrect(id);
     if (correct) {

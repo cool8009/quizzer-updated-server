@@ -1,7 +1,7 @@
 const container = require("../../containerConfig");
 
 const TestInstanceService = container.resolve("TestInstanceService");
-const AnswerInstanceController = require("../Controllers").AnswerInstanceController;
+const AnswerInstanceController = require("./AnswerInstanceController");
 
 
 exports.CreateTestInstance = async (req) => {
@@ -13,7 +13,7 @@ exports.CreateTestInstance = async (req) => {
   const answers = req.body.answers
   const InstanceResult =  await TestInstanceService.createTestInstance(testId, email, firstName, lastName);
   const grade = await AnswerInstanceController.CreateAnswerInstance(answers,InstanceResult.TestInstanceId);
-  await TestInstanceService.UpdateTestInstance(grade);
+  await TestInstanceService.UpdateGrade(grade);
 
   return InstanceResult.TestInstanceId;
 };
@@ -37,7 +37,8 @@ exports.DeleteTestInstance = async (id) => {
 };
 
 exports.GetAllUsersEmails = async (id) => {
-  const all = this.GetAllTestInstance();
-  const items = [1, 2, 3, 2, 3, 1, 5]
-
+  const all = this.GetAllTestInstance;
+  const result = all();
+  const emails = [...result.Email];
+  return emails
 };

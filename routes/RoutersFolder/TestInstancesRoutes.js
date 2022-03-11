@@ -16,6 +16,11 @@ router.get('/GetAll', async function(req,res)  {
   const result =  await TestInstanceController.GetAllTestInstances();
   res.status(200).send(result);
 });
+
+router.get('/GetAllEmails', async function(req,res)  {
+  const result =  await TestInstanceController.GetAllUsersEmails();
+  res.status(200).send(result);
+});
  
 router.get('/GetById/:id', async function(req,res)  {
   const result =  await TestInstanceController.GetTestInstanceById(req.params.id);
