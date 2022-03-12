@@ -3,7 +3,8 @@ const container = require("../../containerConfig");
 const TagService = container.resolve("TagService");
 
 exports.CreateTag = async (req) => {
- await TagService.CreateTag(req);
+ let title = req.body.title;
+ await TagService.CreateTag(title);
 };
 
 exports.UpdateTag = async (req) => {

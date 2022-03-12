@@ -9,8 +9,8 @@ const sequelize = new Sequelize({
   
   module.exports = class QuestionService {
       
-       async CreateQuestion(question) {
-          await Question.create(question)
+       async CreateQuestion(title, content, isSingleChoice) {
+          await Question.create({Title: title, Content: content, IsSingleChoice: isSingleChoice})
               .then(result =>{
                   console.log(result.Title + " question created")
               this.res = result})

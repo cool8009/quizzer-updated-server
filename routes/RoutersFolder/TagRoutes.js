@@ -3,7 +3,7 @@ const router = express.Router();
 const TagController = require("../../controller/Controllers").TagController;
 
 router.post('/create', async function(req,res)  {
-  await TagController.CreateTag(req.body);
+  await TagController.CreateTag(req);
   res.status(200).send();
 });
 

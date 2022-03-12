@@ -8,8 +8,8 @@ const Tag  = require("../../models/Tags")(sequelize, Sequelize.DataTypes);
 
 module.exports = class TagService {
     
-    async CreateTag(tag) {
-        await Tag.create(tag)
+    async CreateTag(title) {
+        await Tag.create({Title: title})
             .then(result =>
                 console.log(result.Title + " tag created"))
             .catch(err =>

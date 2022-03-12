@@ -5,13 +5,13 @@ const AnswerController = require("./AnswerController");
 
 //One Question(every)
 exports.CreateQuestion = async (req) => {
-  const question = await QuestionService.CreateQuestion(req.question);
-  await req.Tags.forEach(tagId =>{
+  const question = await QuestionService.CreateQuestion(req.body.question);
+  await req.body.Tags.forEach(tagId =>{
      QuestionService.AddQuestionTag(question.QuestionId,tagId);
   });
   await req.Answers.forEach(answer => {
     answer.QuestionId = question.QuestionId;});
-  AnswerController.BulkCreateTag(req.Answers);
+  //AnswerController.BulkCreateTag(req.Answers);
 };
 
 exports.UpdateQuestion = async (req) => {
