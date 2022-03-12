@@ -9,16 +9,14 @@ exports.CreateTestInstance = async (req) => {
   const testId = parseInt(req.body.TestId);
   const firstName = req.body.FirstName;
   const lastName = req.body.LastName;
-
-  const answers = req.body.answers
   const InstanceResult =  await TestInstanceService.createTestInstance(testId, email, firstName, lastName);
-  const grade = await AnswerInstanceController.CreateAnswerInstance(answers,InstanceResult.TestInstanceId);
-  await TestInstanceService.UpdateGrade(grade);
-
   return InstanceResult.TestInstanceId;
 };
 
 exports.UpdateTestInstance = async (req) => {
+  // const grade = await AnswerInstanceController.CreateAnswerInstance(answers,InstanceResult.TestInstanceId);
+  // await TestInstanceService.UpdateGrade(grade);
+  // const answers = req.body.answers
   await TestInstanceService.UpdateTestInstance(req);
 };
 

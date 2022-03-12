@@ -3,7 +3,7 @@ const router = express.Router();
 const AnswerInstanceController = require("../../controller/Controllers").AnswerInstanceController;
 
 router.post('/create', async function(req,res)  {
-  await AnswerInstanceController.CreateAnswerInstance(req.body);
+  await AnswerInstanceController.CreateAnswerInstance(req);
   res.status(200).send();
 });
 
