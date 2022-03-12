@@ -2,6 +2,7 @@ const container = require("../../containerConfig");
 
 const TestInstanceService = container.resolve("TestInstanceService");
 const AnswerInstanceController = require("./AnswerInstanceController");
+const TestService = container.resolve("TestService");
 
 
 exports.CreateTestInstance = async (req) => {
@@ -14,10 +15,17 @@ exports.CreateTestInstance = async (req) => {
 };
 
 exports.UpdateTestInstance = async (req) => {
-  const grade = await AnswerInstanceController.CreateAnswerInstance(answers,InstanceResult.TestInstanceId);
-  await TestInstanceService.UpdateGrade(grade);
+  const TestInstanceId = req.body.TestInstanceId;
+  const MinimumToPass = TestService.GetTestById().MinimumToPass;
   const answers = req.body.answers
-  await TestInstanceService.UpdateTestInstance(req);
+  
+  const grade = await AnswerInstanceController.CreateAnswerInstance(answers,TestInstanceId);
+  
+  const isPassed = false;
+  if(grade>MinimumToPass){
+    isPassed = true;
+  }
+  await TestInstanceService.UpdateGrade(grade,isPassed);
 };
 
 exports.GetAllTestInstance = async () => {

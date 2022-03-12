@@ -22,9 +22,8 @@ module.exports = class TestInstancesService {
 
     async UpdateTestInstance(newTestInstances) {
         await TestInstances.update({
-            FirstName: newTestInstances.FirstName,
+
             Grade: newTestInstances.Grade ,
-            LastName: newTestInstances.LastName
             }, {
             where: {
                 TestInstancesId: newTestInstances.TestInstancesId
@@ -35,12 +34,13 @@ module.exports = class TestInstancesService {
             console.log(err));             
     }    
     
-    async UpdateGrade(id){
+    async UpdateGrade(id, isPassed){
         await TestInstances.update({
             Grade: newTestInstances.Grade
             }, {
             where: {
-                TestInstancesId: id
+                TestInstancesId: id,
+                IsPassed: isPassed
             }})
         .then(result =>
             console.log("TestInstances by " + result.TestInstancesId + " id update"))
