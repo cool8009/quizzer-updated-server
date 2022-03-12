@@ -15,6 +15,7 @@ exports.CreateAnswerInstance = async (req) => {
       Score += answerScore;
     }
   });
+  //after this, update the testinstance
   return Score;
 };
 

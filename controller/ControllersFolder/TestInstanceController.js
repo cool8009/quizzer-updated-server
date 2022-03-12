@@ -14,9 +14,9 @@ exports.CreateTestInstance = async (req) => {
 };
 
 exports.UpdateTestInstance = async (req) => {
-  // const grade = await AnswerInstanceController.CreateAnswerInstance(answers,InstanceResult.TestInstanceId);
-  // await TestInstanceService.UpdateGrade(grade);
-  // const answers = req.body.answers
+  const grade = await AnswerInstanceController.CreateAnswerInstance(answers,InstanceResult.TestInstanceId);
+  await TestInstanceService.UpdateGrade(grade);
+  const answers = req.body.answers
   await TestInstanceService.UpdateTestInstance(req);
 };
 
