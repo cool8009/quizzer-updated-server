@@ -7,5 +7,6 @@ module.exports = {
     CompanyRoutes: require('./RoutersFolder/CompanyRoutes'),
     TestInstanceRoutes: require('./RoutersFolder/TestInstancesRoutes'),
     AnswerInstanceRoutes: require('./RoutersFolder/AnswerInstanceRoutes'),
-    EmailRoutes: require('./RoutersFolder/SendEmailR')
+    EmailRoutes: require('./RoutersFolder/SendEmailR'),
+    QuestionTagRoutes: require('./RoutersFolder/QuestionTagRoutes')
 }

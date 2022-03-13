@@ -7,5 +7,6 @@ module.exports = {
     CompanyController: require('./ControllersFolder/CompanyController'),
     TestInstanceController: require('./ControllersFolder/TestInstanceController'),
     AnswerInstanceController: require('./ControllersFolder/AnswerInstanceController'),
-    EmailController: require('./ControllersFolder/EmailController')
+    EmailController: require('./ControllersFolder/EmailController'),
+    QuestionTagController: require('./ControllersFolder/QuestionTagController'),
 }

@@ -3,8 +3,8 @@ const router = express.Router();
 const TagController = require("../../controller/Controllers").TagController;
 
 router.post('/create', async function(req,res)  {
-  await TagController.CreateTag(req);
-  res.status(200).send();
+  const resultId = await TagController.CreateTag(req);
+  res.send(JSON.stringify(resultId));
 });
 
 router.put('/Update', async function(req,res)  {

@@ -11,7 +11,8 @@ container.register({
     CompanyService: awilix.asClass(Services.CompanyService).singleton(),
     FieldOfStudyIdService: awilix.asClass(Services.FieldOfStudyIdService).singleton(),
     TestInstanceService: awilix.asClass(Services.TestInstanceService).singleton(),
-    AnswerInstanceService: awilix.asClass(Services.AnswerInstanceService).singleton()
+    AnswerInstanceService: awilix.asClass(Services.AnswerInstanceService).singleton(),
+    QuestionTagService: awilix.asClass(Services.QuestionTagService).singleton()
 });
 
 module.exports = container;

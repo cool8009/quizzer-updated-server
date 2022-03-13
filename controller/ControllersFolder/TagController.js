@@ -3,12 +3,13 @@ const container = require("../../containerConfig");
 const TagService = container.resolve("TagService");
 
 exports.CreateTag = async (req) => {
- let title = req.body.title;
- await TagService.CreateTag(title);
+  let title = req.body.title;
+  const tagResult = await TagService.CreateTag(title);
+  return tagResult.TagId;
 };
 
 exports.UpdateTag = async (req) => {
- await TagService.UpdateTag(req);
+  await TagService.UpdateTag(req);
 };
 
 exports.GetAllTags = async () => {
@@ -22,5 +23,5 @@ exports.GetTagById = async (id) => {
 };
 
 exports.DeleteTag = async (id) => {
- await TagService.DeleteTag(id);
+  await TagService.DeleteTag(id);
 };

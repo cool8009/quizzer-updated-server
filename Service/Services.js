@@ -8,4 +8,5 @@ module.exports = {
     AnswerService: require('./ServicesFolder/AnswerService'),
     AnswerInstanceService: require('./ServicesFolder/AnswerInstanceService'),
     EmailService: require('./ServicesFolder/EmailService'),
+    QuestionTagService: require('./ServicesFolder/QuestionTagService')
 }
