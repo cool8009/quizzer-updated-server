@@ -11,9 +11,11 @@ module.exports = class TagService {
     async CreateTag(title) {
         await Tag.create({Title: title})
             .then(result =>
-                console.log(result.Title + " tag created"))
+               {console.log(result.Title + " tag created")
+                this.res = result})
             .catch(err =>
-                console.log(err));                      
+                console.log(err)); 
+        return this.res;                     
     }
 
     async BulkCreateTag(tag) {

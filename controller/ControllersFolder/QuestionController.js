@@ -9,8 +9,9 @@ exports.CreateQuestion = async (req) => {
   await req.body.Tags.forEach(tagId =>{
      QuestionService.AddQuestionTag(question.QuestionId,tagId);
   });
-  await req.Answers.forEach(answer => {
-    answer.QuestionId = question.QuestionId;});
+  return question.QuestionId;
+  // await req.Answers.forEach(answer => {
+  //   answer.QuestionId = question.QuestionId;});
   //AnswerController.BulkCreateTag(req.Answers);
 };
 

@@ -25,4 +25,5 @@ app.use("/FieldOfStudy", Routers.FieldOfStudyRoutes);
 app.use("/Answer", Routers.AnswerRoutes);
 app.use("/TestInstances", Routers.TestInstanceRoutes);
 app.use("/AnswerInstance", Routers.AnswerInstanceRoutes);
+app.use("/QuestionTags", Routers.QuestionTagRoutes);
 // app.use("/Email", Routers.EmailRoutes);
