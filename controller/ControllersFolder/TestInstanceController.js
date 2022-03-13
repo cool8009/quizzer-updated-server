@@ -15,11 +15,11 @@ exports.CreateTestInstance = async (req) => {
 };
 
 exports.UpdateTestInstance = async (req) => {
-  const TestInstanceId = req.body.TestInstanceId;
-  const MinimumToPass = TestService.GetTestById().MinimumToPass;
-  const answers = req.body.answers
-  
-  const grade = await AnswerInstanceController.CreateAnswerInstance(answers,TestInstanceId);
+  const TestInstanceId = req.TestInstanceId;
+  const MinimumToPass = 55;//TestService.GetTestById(req.testId).MinimumToPass;
+  const answers = req.answers
+  console.log(answers);
+  const grade = await AnswerInstanceController.CreateAnswerInstance({answers: answers, testInstanceid: TestInstanceId});
   
   const isPassed = false;
   if(grade>MinimumToPass){

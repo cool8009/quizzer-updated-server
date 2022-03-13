@@ -4,8 +4,8 @@ const AnswerInstanceService = container.resolve("AnswerInstanceService");
 const AnswersService = container.resolve("AnswerService");
 
 exports.CreateAnswerInstance = async (req) => {
-  let submittedAnswersId = req.body.submittedAnswers;
-  let testinstanceid = req.body.testinstanceid;
+  let submittedAnswersId = req.answers;
+  let testinstanceid = req.testInstanceid;
   let answerScore = 100 / submittedAnswersId.length;
   let Score = 0;
   await submittedAnswersId.forEach((id) => {
